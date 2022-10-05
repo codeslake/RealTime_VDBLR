@@ -1,10 +1,16 @@
-## Real-Time Video Deblurring via Lightweight Motion Compensation<br><sub>Official PyTorch Implementation of the PG 2022 Paper</sub><br><sub> [arXiv](https://arxiv.org/abs/2205.12634)</sub>
+## Real-Time Video Deblurring via Lightweight Motion Compensation<br><sub>Official PyTorch Implementation of the PG 2022 Paper</sub><br><sub> [Project](https://junyonglee.me/projects/RT-VDBLR/) \| [Paper](https://diglib.eg.org/bitstream/handle/10.1111/cgf14667/v41i7pp177-188.pdf?sequence=1&isAllowed=y) \| [arXiv](https://arxiv.org/abs/2205.12634)</sub>
 
 This repo contains training and evaluation code for the following paper:
-> [**Real-Time Video Deblurring via Lightweight Motion Compensation**](https://arxiv.org/abs/2205.12634)<br>
+> [**Real-Time Video Deblurring via Lightweight Motion Compensation**](https://diglib.eg.org/bitstream/handle/10.1111/cgf14667/v41i7pp177-188.pdf?sequence=1&isAllowed=y)<br>
 > *[Hyeongseok Son](https://sites.google.com/site/sonhspostech/), *[Junyong Lee](https://junyonglee.me), [Sunghyun Cho](https://www.scho.pe.kr/), and [Seungyong Lee](http://cg.postech.ac.kr/leesy/) (*equal contribution)<br>
 > POSTECH<br>
 > *Pacific Graphics (**PG**) 2022 (special issue of the Computer Graphics Forum (CGF))*<br>
+
+<p align="left">
+  <a href="https://youtu.be/qJNQ76K8TGE">
+    <img width=85% src="./assets/teaser2.png"/>
+  </a>
+</p>
 
 ## Getting Started
 ### Prerequisites
@@ -53,13 +59,12 @@ Download and unzip datasets under `[DATASET_ROOT]`:
             ├── reds_info_train.pkl
             ├── reds_info_valid.pkl
             ├── reds_train
-            │
             ├── reds_train_gt
             ├── reds_valid
             └── reds_valid_gt
 ```
 
-> `[DATASET_ROOT]` can be modified with [`config.data_offset`]() in `./configs/config.py`.
+> `[DATASET_ROOT]` can be modified with [`config.data_offset`](https://github.com/codeslake/RealTime_VDBLR/blob/main/configs/config.py#L44) in `./configs/config.py`.
 
 #### 3. Pre-trained models
 Download and unzip pretrained weights ([Google Drive](https://drive.google.com/drive/folders/1--m4c8rF1UmEdyu2AIM3DB-z5_03ZZxY?usp=sharing) \| [Dropbox](https://www.dropbox.com/sh/k1j7kdk7qyq04jg/AADNCY0guxTqZgL6sKAVyKcTa?dl=1)) under `./ckpt/`:
@@ -80,7 +85,7 @@ RealTime_VDBLR
 *For PSNRs and SSIMs reported in the paper, we use the approach of [Koehler *et al.*](https://webdav.tuebingen.mpg.de/pixel/benchmark4camerashake/src_files/Pdf/Koehler_ECCV2012_Benchmark.pdf)
 following [Su *et al.*](https://openaccess.thecvf.com/content_cvpr_2017/papers/Su_Deep_Video_Deblurring_CVPR_2017_paper.pdf),
 that first aligns two images using global translation to represent the ambiguity in the pixel location caused by blur.*<br>
-***Refer [here](https://github.com/codeslake/RealTime_VDBLR/tree/main/evaluation) for the evaluation code.***
+***Refer [here](https://github.com/codeslake/RealTime_VDBLR/tree/main/evaluation_matlab) for the evaluation code.***
 
 ```shell
 # [n]-stack MTUs evaluationed on [DVD|GoPro|REDS] datasets
@@ -98,7 +103,7 @@ that first aligns two images using global translation to represent the ambiguity
 
 > Testing results will be saved in `[LOG_ROOT]/PG2022_RealTime_VDBLR/[mode]/result/eval/[mode]_[epoch]/[data]/`.
 
-> `[LOG_ROOT]` can be modified with [`config.log_offset`]() in `./configs/config.py`.
+> `[LOG_ROOT]` can be modified with [`config.log_offset`](https://github.com/codeslake/RealTime_VDBLR/blob/main/configs/config.py#L57) in `./configs/config.py`.
 
 
 #### options
@@ -106,8 +111,8 @@ that first aligns two images using global translation to represent the ambiguity
     * The data structure can be modified in the function [`set_eval_path(..)`](https://github.com/codeslake/RealTime_VDBLR/blob/main/configs/config.py#L139-170) in `./configs/config.py`.
 
 ## Wiki
-* [Logging]()
-* [Training and testing details]()
+* [Logging](https://github.com/codeslake/RealTime_VDBLR/wiki/Log-Details)
+* [Training and testing details](https://github.com/codeslake/RealTime_VDBLR/wiki/Training-&-Testing-Details)
 
 ## Contact
 Open an issue for any inquiries.
